@@ -1,0 +1,23 @@
+sep-01-2014
+From:
+https://nycopendata.socrata.com/Health/Restaurant-Inspection-Results/4vkw-7nck
+
+Data field description is in RI_Webextract_BigApps_Latest.xls
+
+CURRENTGRADE:
+NULL = Not Yet Graded
+A = Grade A
+B = Grade B
+C = Grade C
+Z = Grade Pending
+
+BORO
+1 = MANHATTAN
+2 = THE BRONX
+3 = BROOKLYN
+4 = QUEENS
+5 = STATEN ISLAND
+
+CRITCALFLAG
+Y = Critical
+N = Not Critical
