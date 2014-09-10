@@ -1,5 +1,6 @@
+dataFile <- "data/WebExtract.txt"
 # Problem with Fontana's written as Fontana"s
-z1 <- scan("WebExtract.txt", sep="\n", wh="")
+z1 <- scan(dataFile, sep="\n", wh="")
 z2 <- gsub('\"Fontana\"s\"', "\"Fontana's\"", z1)
 tfile <- tempfile("data", fileext = ".csv")
 write(z2, file=tfile)
@@ -10,10 +11,8 @@ cf <- count.fields(tfile, sep=",", quote='"', comment="")
 table(cf)  # Should be all 15
 
 # Read modified data:
-d <- read.csv(tfile, header=TRUE, stringsAsFactor=FALSE)
-d$INSPDATE <- as.Date(d$INSPDATE)
-d$GRADEDATE <- as.Date(d$GRADEDATE)
-d$RECORDDATE <- gsub(" .*", "", d$RECORDDATE)
-d$RECORDDATE <- as.Date(d$RECORDDATE)
-
-t <- table(d$CURRENTGRADE)
+nycData <- read.csv(tfile, header=TRUE, stringsAsFactor=FALSE)
+nycData$INSPDATE <- as.Date(nycData$INSPDATE)
+nycData$GRADEDATE <- as.Date(nycData$GRADEDATE)
+nycData$RECORDDATE <- gsub(" .*", "", nycData$RECORDDATE)
+nycData$RECORDDATE <- as.Date(nycData$RECORDDATE)
