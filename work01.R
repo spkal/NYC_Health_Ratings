@@ -13,3 +13,6 @@ nycData_Grade_Date <- summarize(nycData_by_date,
 # Days between grades:
 nycData_Grade_Date <- mutate(nycData_Grade_Date, Days=Date - lag(Date))
 
+# Grade transitions
+nycData_Grade_Date <- mutate(nycData_Grade_Date,
+    Trans = paste0(lag(Grade), Grade))
