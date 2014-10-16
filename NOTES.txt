@@ -1,3 +1,7 @@
+oct-16-2014
+readData.R script assumes that the dohmh_restaurant-inspections_002.zip file
+has been unpacked in the subdiretory called data.
+
 sep-01-2014
 From:
 https://nycopendata.socrata.com/Health/Restaurant-Inspection-Results/4vkw-7nck

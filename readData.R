@@ -12,6 +12,7 @@ table(cf)  # Should be all 15
 
 # Read modified data:
 nycData <- read.csv(tfile, header=TRUE, stringsAsFactor=FALSE)
+rm(tfile)
 nycData$INSPDATE <- as.Date(nycData$INSPDATE)
 nycData$GRADEDATE <- as.Date(nycData$GRADEDATE)
 nycData$RECORDDATE <- gsub(" .*", "", nycData$RECORDDATE)
