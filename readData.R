@@ -16,3 +16,15 @@ nycData$INSPDATE <- as.Date(nycData$INSPDATE)
 nycData$GRADEDATE <- as.Date(nycData$GRADEDATE)
 nycData$RECORDDATE <- gsub(" .*", "", nycData$RECORDDATE)
 nycData$RECORDDATE <- as.Date(nycData$RECORDDATE)
+
+# Clean up string data:
+library(stringr)
+nycData$BUILDING <- str_trim(nycData$BUILDING)
+nycData$STREET <- str_trim(nycData$STREET)
+nycData$PHONE <- str_trim(nycData$PHONE)
+
+# Drop bad data:
+indxBad <- which(nycData$ZIPCODE == "N/A")
+if(length(indxBad) > 0) {
+    nycData <- nycData[-indxBad,]
+}
