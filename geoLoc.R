@@ -26,3 +26,13 @@ geocode <- geocode[uniqueAddress, ]
 m <- match(fullAddress, uniqueAddress)
 nycData$lat <- geocode[m, "lat"]
 nycData$long <- geocode[m, "long"]
+
+# Set bad lat, long values to NA
+indxBadLatLong <- nycData$lat > 41.5 |
+    nycData$long < -74.3 |
+    nycData$long > -73.6
+if(length(indxBadLatLong) > 0) {
+    nycData$long[indxBadLatLong] <- NA
+    nycData$lat[indxBadLatLong] <- NA
+}
+nycData$lat[
