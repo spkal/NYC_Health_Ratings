@@ -35,4 +35,7 @@ if(length(indxBadLatLong) > 0) {
     nycData$long[indxBadLatLong] <- NA
     nycData$lat[indxBadLatLong] <- NA
 }
-nycData$lat[
+
+# Look at locations (only one point for each restaurant (unique CAMIS))
+with(unique(nycData[, c("CAMIS", "lat", "long")]),
+    plot(long, lat, pch=16, cex=.6))
