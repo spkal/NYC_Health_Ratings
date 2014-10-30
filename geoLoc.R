@@ -1,3 +1,7 @@
+# Get geocoding (longitude, latitude) for NYC restaurants from their address
+#
+# Requires packages: httr, rjson
+#
 streetAddress <- with(nycData, paste(BUILDING, STREET))
 fullAddress <- with(nycData, paste0(streetAddress, ", New York, NY, ", ZIPCODE))
 uniqueAddress <- unique(fullAddress)
