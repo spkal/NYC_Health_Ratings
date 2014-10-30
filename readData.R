@@ -25,7 +25,8 @@ nycData$STREET <- str_trim(nycData$STREET)
 nycData$PHONE <- str_trim(nycData$PHONE)
 
 # Drop bad data:
-indxBad <- which(nycData$ZIPCODE == "N/A")
-if(length(indxBad) > 0) {
-    nycData <- nycData[-indxBad,]
+# INSPDATE not right:
+indxBadINSPDATE <- which(nycData$INSPDATE == "1900-01-01")
+if(length(indxBadINSPDATE) > 0) {
+    nycData <- nycData[-indxBadINSPDATE,]
 }
